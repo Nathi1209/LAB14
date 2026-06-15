@@ -1,0 +1,17 @@
+{
+  "name": "discostore",
+  "version": "1.0.0",
+  "description": "API REST para administrar el catalogo de albumes de DiscoStore",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "zod": "^3.23.8"
+  }
+}
