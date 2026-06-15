@@ -1,11 +1,17 @@
 import 'dotenv/config';
 import express from 'express';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { db } from './db.js';
 import { albumCrearSchema, albumActualizarSchema } from './schemas.js';
 import { generarSlug } from './slug.js';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const app = express();
 app.use(express.json());
+
+app.use('/imagenes', express.static(path.join(__dirname, '..', 'imagenes')));
 
 app.get('/', (req, res) => {
   res.status(200).json({
