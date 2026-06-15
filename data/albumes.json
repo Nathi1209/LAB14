@@ -1,0 +1,98 @@
+[
+  {
+    "titulo": "Thriller",
+    "artista": "Michael Jackson",
+    "genero": "Pop",
+    "anio": 1982,
+    "sello": "Epic",
+    "pistas": 9,
+    "imagen": "thriller.avif",
+    "slug": "thriller",
+    "resumen": "El album mas vendido de la historia.",
+    "descripcion": "Album de Michael Jackson que redefinio la musica pop de los anos 80."
+  },
+  {
+    "titulo": "Back in Black",
+    "artista": "AC/DC",
+    "genero": "Rock",
+    "anio": 1980,
+    "sello": "Atlantic",
+    "pistas": 10,
+    "imagen": "back-in-black.avif",
+    "slug": "back-in-black",
+    "resumen": "Tributo al vocalista Bon Scott y uno de los discos de rock mas vendidos.",
+    "descripcion": "Septimo album de estudio de AC/DC, lanzado tras la muerte de Bon Scott y considerado un pilar del hard rock."
+  },
+  {
+    "titulo": "The Dark Side of the Moon",
+    "artista": "Pink Floyd",
+    "genero": "Rock Progresivo",
+    "anio": 1973,
+    "sello": "Harvest",
+    "pistas": 10,
+    "imagen": "dark-side-of-the-moon.avif",
+    "slug": "the-dark-side-of-the-moon",
+    "resumen": "Obra cumbre del rock progresivo de los anos 70.",
+    "descripcion": "Octavo album de Pink Floyd, un viaje conceptual sobre la presion, el tiempo y la locura."
+  },
+  {
+    "titulo": "Nevermind",
+    "artista": "Nirvana",
+    "genero": "Grunge",
+    "anio": 1991,
+    "sello": "DGC",
+    "pistas": 13,
+    "imagen": "nevermind.avif",
+    "slug": "nevermind",
+    "resumen": "El album que llevo el grunge al mainstream.",
+    "descripcion": "Segundo disco de Nirvana, impulsado por Smells Like Teen Spirit, marco la decada de los 90."
+  },
+  {
+    "titulo": "Rumours",
+    "artista": "Fleetwood Mac",
+    "genero": "Rock",
+    "anio": 1977,
+    "sello": "Warner Bros",
+    "pistas": 11,
+    "imagen": "rumours.avif",
+    "slug": "rumours",
+    "resumen": "Clasico atemporal nacido entre rupturas internas de la banda.",
+    "descripcion": "Undecimo album de Fleetwood Mac, escrito durante crisis sentimentales de sus miembros."
+  },
+  {
+    "titulo": "Lemonade",
+    "artista": "Beyonce",
+    "genero": "Pop",
+    "anio": 2016,
+    "sello": "Parkwood",
+    "pistas": 12,
+    "imagen": "lemonade.avif",
+    "slug": "lemonade",
+    "resumen": "Album visual sobre infidelidad, identidad y empoderamiento.",
+    "descripcion": "Sexto disco solista de Beyonce, acompanado de una pelicula y considerado un hito del R&B contemporaneo."
+  },
+  {
+    "titulo": "Random Access Memories",
+    "artista": "Daft Punk",
+    "genero": "Electronica",
+    "anio": 2013,
+    "sello": "Columbia",
+    "pistas": 13,
+    "imagen": "random-access-memories.avif",
+    "slug": "random-access-memories",
+    "resumen": "Homenaje al sonido disco y funk de los anos 70.",
+    "descripcion": "Cuarto album de Daft Punk con colaboraciones de Nile Rodgers, Pharrell Williams y Giorgio Moroder."
+  },
+  {
+    "titulo": "Future Nostalgia",
+    "artista": "Dua Lipa",
+    "genero": "Pop",
+    "anio": 2020,
+    "sello": "Warner",
+    "pistas": 11,
+    "imagen": "future-nostalgia.avif",
+    "slug": "future-nostalgia",
+    "resumen": "Pop bailable inspirado en el disco y el funk.",
+    "descripcion": "Segundo album de Dua Lipa, lanzado en plena pandemia y exito de critica y publico."
+  }
+]
