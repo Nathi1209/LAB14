@@ -1,6 +1,8 @@
 import 'dotenv/config';
 import express from 'express';
 import { db } from './db.js';
+import { albumCrearSchema, albumActualizarSchema } from './schemas.js';
+import { generarSlug } from './slug.js';
 
 const app = express();
 app.use(express.json());
@@ -54,6 +56,59 @@ app.get('/search/:text', (req, res) => {
     `)
     .all(q, q);
   res.status(200).json(albumes);
+});
+
+app.post('/albumes', (req, res) => {
+  const parseo = albumCrearSchema.safeParse(req.body);
+  if (!parseo.success) {
+    return res.status(400).json({ error: 'Datos invalidos', detalles: parseo.error.issues });
+  }
+  const datos = parseo.data;
+  const slug = generarSlug(datos.titulo);
+
+  const existe = db.prepare('SELECT 1 FROM albumes WHERE slug = ?').get(slug);
+  if (existe) {
+    return res.status(409).json({ error: `Ya existe un album con el slug "${slug}"` });
+  }
+
+  const album = { slug, ...datos };
+  db.prepare(`
+    INSERT INTO albumes (slug, titulo, artista, genero, anio, sello, pistas, imagen, resumen, descripcion)
+    VALUES (@slug, @titulo, @artista, @genero, @anio, @sello, @pistas, @imagen, @resumen, @descripcion)
+  `).run(album);
+
+  res.status(201).location(`/album/${slug}`).json(album);
+});
+
+app.put('/album/:slug', (req, res) => {
+  const actual = db.prepare('SELECT * FROM albumes WHERE slug = ?').get(req.params.slug);
+  if (!actual) {
+    return res.status(404).json({ error: 'Album no encontrado' });
+  }
+
+  const parseo = albumActualizarSchema.safeParse(req.body);
+  if (!parseo.success) {
+    return res.status(400).json({ error: 'Datos invalidos', detalles: parseo.error.issues });
+  }
+
+  const actualizado = { ...actual, ...parseo.data };
+  db.prepare(`
+    UPDATE albumes
+       SET titulo = @titulo, artista = @artista, genero = @genero, anio = @anio,
+           sello = @sello, pistas = @pistas, imagen = @imagen,
+           resumen = @resumen, descripcion = @descripcion
+     WHERE slug = @slug
+  `).run(actualizado);
+
+  res.status(200).json(actualizado);
+});
+
+app.delete('/album/:slug', (req, res) => {
+  const resultado = db.prepare('DELETE FROM albumes WHERE slug = ?').run(req.params.slug);
+  if (resultado.changes === 0) {
+    return res.status(404).json({ error: 'Album no encontrado' });
+  }
+  res.status(204).end();
 });
 
 const PORT = process.env.PORT || 3000;
